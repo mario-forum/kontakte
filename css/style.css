@@ -1,11 +1,13 @@
+:root {
+    --success: limegreen;
+    --error: rgb(236, 26, 72);
+}
+
 /* TAGS */
 body {
     background-color: lightgrey;
 }
 
-input, label, small {
-    display: block;
-}
 
 /* CLASSES */
 .container {
@@ -13,4 +15,44 @@ input, label, small {
     width: 80vw;
     margin: 0 auto;
     padding-left: 10px;
+}
+
+/*  FORMULAR */
+.form-input {
+    position: relative;
+}
+
+.form-input label {
+    display: block;
+}
+
+.form-input input {
+    display: block;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+}
+
+.form-input input:focus {
+    border-color: lightskyblue;
+    outline: 0;
+}
+
+.form-input.success input {
+    border-color: var(--success);
+}
+
+.form-input.error input {
+    border-color: var(--error);
+}
+
+.form-input small {
+    color: var(--error);
+    /* position: absolute; */
+    visibility: hidden;
+    bottom: 0;
+    left: 0;
+}
+
+.form-input.error small {
+    visibility: visible;
 }
