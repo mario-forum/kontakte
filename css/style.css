@@ -1,0 +1,16 @@
+/* TAGS */
+body {
+    background-color: lightgrey;
+}
+
+input, label, small {
+    display: block;
+}
+
+/* CLASSES */
+.container {
+    background-color: snow;
+    width: 80vw;
+    margin: 0 auto;
+    padding-left: 10px;
+}
