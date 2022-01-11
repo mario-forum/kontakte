@@ -26,6 +26,7 @@ form.addEventListener('submit', function (e) {
     // Check length of user input. Pass DOM input element, min & max value
     checkLaenge(firstname, 2, 20);
     checkLaenge(lastname, 4, 10);
+    checkTelefon(phone);
 });
 
 // FUNKTIONEN
@@ -78,4 +79,22 @@ function checkLaenge(input, min, max) {
     } else { // checkOK   
          checkOK(input);        
     }
+}
+
+// Prüfe Telefonnr.
+// Check phone no.
+function checkTelefon(input) {
+    // regex
+    const regex = /\(?\+\(?49\)?[ ()]?([- ()]?\d[- ()]?){10}/g;
+
+    // if regex
+    if (regex.test(input.value)) {
+        // true
+        checkOK(input)
+    } else {
+        // false 
+        checkFehler(input, 'Keine Telefonnr.')
+    }
+   
+    // Hausaufgabe: regex für e-mailadressen suchen & testen
 }
