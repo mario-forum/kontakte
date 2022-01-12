@@ -32,8 +32,11 @@ form.addEventListener('submit', function (e) {
         // Zur Liste zufügen
         // Add to list
         listeAuffuellen('liste', kontakte);
-    }
 
+        // In den LS schreiben
+        // Write into LS
+        toLocalStorage('lsJsonObject', serialize(kontakte));
+    }
 });
 
 // FUNKTIONEN
@@ -163,3 +166,20 @@ function listeAuffuellen(elementId, inputArr) {
         liste.appendChild(li);
     })
 }
+
+function toLocalStorage(localstorageKey, localstorageValue) {
+    localStorage.setItem(localstorageKey,localstorageValue);
+}
+
+function serialize(data) {
+    return JSON.stringify(data)
+}
+
+
+// ANTONIO
+// function toLocalStorage(localstorageKey, localstorageValue) {
+//     const jsonString = JSON.stringify(localstorageValue);
+
+//     localStorage.setItem(localstorageKey,jsonString);
+// }
+
