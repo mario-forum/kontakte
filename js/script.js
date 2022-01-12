@@ -27,6 +27,7 @@ form.addEventListener('submit', function (e) {
     checkLaenge(firstname, 2, 20);
     checkLaenge(lastname, 4, 10);
     checkTelefon(phone);
+    checkEmail(email);
 });
 
 // FUNKTIONEN
@@ -95,6 +96,17 @@ function checkTelefon(input) {
         // false 
         checkFehler(input, 'Keine Telefonnr.')
     }
-   
-    // Hausaufgabe: regex für e-mailadressen suchen & testen
+}
+
+// Prüfe E-Mailadresse
+// Check e-mailadress
+function checkEmail(input) {
+    const regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    // const regex = /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\u0022(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*\u0022)@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/;
+
+    if (regex.test(input.value)) {
+        checkOK(input);
+    } else {
+        checkFehler(input, 'Keine gültige E-Mailadresse');
+    }
 }
