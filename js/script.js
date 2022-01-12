@@ -39,6 +39,14 @@ form.addEventListener('submit', function (e) {
     }
 });
 
+// Gole daten aus LS
+// Get data from LS
+const initData = parse(getFromLocalStorage('lsJsonObject'));
+
+// Initialisiere kontake[] mit Daten aus dem LS
+// Initialize kontakte[] with LS daat
+initKontakte(initData);
+
 // FUNKTIONEN
 // FUNCTIONS
 function checkInputsNotEmpty(domArray) {
@@ -171,11 +179,31 @@ function toLocalStorage(localstorageKey, localstorageValue) {
     localStorage.setItem(localstorageKey,localstorageValue);
 }
 
+function getFromLocalStorage(localstorageKey) {
+    return localStorage.getItem(localstorageKey);
+}
+
 function serialize(data) {
     return JSON.stringify(data)
 }
 
+function parse(data) {
+    return JSON.parse(data);
+}
 
+
+function initKontakte(data) {
+    //pürfen ob LS data nicht leer
+    if (data != null) {
+        //für jedes obj data in kontakte[] push
+        data.forEach((obj) => {
+            kontakte.push(obj);
+        });
+        // erzeuge liste
+        listeAuffuellen('liste', kontakte);
+    }
+
+}
 // ANTONIO
 // function toLocalStorage(localstorageKey, localstorageValue) {
 //     const jsonString = JSON.stringify(localstorageValue);
