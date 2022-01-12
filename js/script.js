@@ -20,7 +20,7 @@ form.addEventListener('submit', function (e) {
 
     // Funktionsaufruf, erhält ein Array als Parameter
     // Call pass an array as parameter
-    checkInputsNotEmpty([firstname, lastname, phone, email]) // checkInputsNichtLeer()
+    checkInputsNotEmpty([firstname, lastname, phone, email]); // checkInputsNichtLeer()
   
     // Funktionsaufruf checkLaenge, erhält DOM input Element, min und max Wert
     // Check length of user input. Pass DOM input element, min & max value
@@ -36,6 +36,8 @@ form.addEventListener('submit', function (e) {
         // In den LS schreiben
         // Write into LS
         toLocalStorage('lsJsonObject', serialize(kontakte));
+        // clearText(firstname, lastname, phone, email);
+        clearText([firstname, lastname, phone, email]);
     }
 });
 
@@ -221,3 +223,30 @@ function initKontakte(data) {
 
 }
 
+
+// ALEX Inputs leeren
+// ALEX clear input fileds
+// function clearText() {
+//     document.getElementById('firstnameId').value = '';
+//     document.getElementById('lastnameId').value = '';
+//     document.getElementById('phoneId').value = '';
+//     document.getElementById('email').value = '';
+// }
+
+// MARIO 1 Inputs leeren
+// MARIO 1 clear input fields
+// function clearText(firstname, lastname, phone, email) {
+//     firstname.value = '';
+//     lastname.value = '';
+//     phone.value = '';
+//     email.value = '';
+// }
+
+
+// MARIO 2 Inputs leeren
+// MARIO 2 clear input fields
+function clearText(domArray) {
+    domArray.forEach( (input) => {
+        input.value = '';
+    });
+}
