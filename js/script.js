@@ -24,10 +24,16 @@ form.addEventListener('submit', function (e) {
   
     // Funktionsaufruf checkLaenge, erhält DOM input Element, min und max Wert
     // Check length of user input. Pass DOM input element, min & max value
-    checkLaenge(firstname, 2, 20);
-    checkLaenge(lastname, 4, 10);
-    checkTelefon(phone);
-    checkEmail(email);
+    if (checkLaenge(firstname, 2, 20) && checkLaenge(lastname, 4, 10) && checkTelefon(phone) && checkEmail(email) ) {
+        // in das kontakte[] wird ein objekt zugefügt
+        // add an object to kontakte[]
+        kontakte.push(kontaktFactory(firstname.value, lastname.value, phone.value, email.value));
+
+        // Zur Liste zufügen
+        // Add to list
+        listeAuffuellen('liste', kontakte);
+    }
+
 });
 
 // FUNKTIONEN
@@ -74,11 +80,14 @@ function checkOK(input) {
 // Check user input length
 function checkLaenge(input, min, max) {    
     if (input.value.length < min) { // < min checkFehler
-        checkFehler(input, `${getInputName(input)} muss mindestens ${min} Characters lang sein`);        
+        checkFehler(input, `${getInputName(input)} muss mindestens ${min} Characters lang sein`);    
+        return false;    
     } else if (input.value.length > max) { // > max checkFehler        
         checkFehler(input, `${getInputName(input)} darf nicht laenger als ${max} Characters lang sein`);
+        return false;
     } else { // checkOK   
-         checkOK(input);        
+         checkOK(input);  
+         return true;      
     }
 }
 
@@ -92,9 +101,11 @@ function checkTelefon(input) {
     if (regex.test(input.value)) {
         // true
         checkOK(input)
+        return true;
     } else {
         // false 
         checkFehler(input, 'Keine Telefonnr.')
+        return false;
     }
 }
 
@@ -106,7 +117,49 @@ function checkEmail(input) {
 
     if (regex.test(input.value)) {
         checkOK(input);
+        return true;
     } else {
         checkFehler(input, 'Keine gültige E-Mailadresse');
+        return false;
     }
+}
+
+// BROWSER & OUTPUT
+
+// Factory function
+// Fabrik Funktion
+
+// kontakt Factory
+const kontaktFactory = (fname, lname, phone, email) => {
+    return {
+        firstname: fname,
+        lastname: lname,
+        phone: phone,
+        email: email,
+    };
+};
+
+
+// Liste befüllen
+// Populate list
+function listeAuffuellen(elementId, inputArr) {
+    const liste = document.getElementById(elementId);
+
+    // UL-Tag leeren
+    // Clear ul-tag
+    liste.innerHTML = "";
+
+    inputArr.forEach((item) => {
+        const li = document.createElement('li');
+        li.innerHTML = `
+            <div class="kontakt-info">
+                <h4>${item.lastname}</h4>
+                <p>${item.firstname}</p>
+                <p>${item.phone}</p>
+                <p>${item.email}</p>
+            </div>
+        `;
+
+        liste.appendChild(li);
+    })
 }
