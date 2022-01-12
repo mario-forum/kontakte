@@ -175,23 +175,39 @@ function listeAuffuellen(elementId, inputArr) {
     })
 }
 
+// ANTONIO
+// function toLocalStorage(localstorageKey, localstorageValue) {
+//     const jsonString = JSON.stringify(localstorageValue);
+
+//     localStorage.setItem(localstorageKey,jsonString);
+// }
+
+// Schreibe in den LS
+// Write to LS
 function toLocalStorage(localstorageKey, localstorageValue) {
     localStorage.setItem(localstorageKey,localstorageValue);
 }
 
+// Hole aus LS
+// Get from LS
 function getFromLocalStorage(localstorageKey) {
     return localStorage.getItem(localstorageKey);
 }
 
+// Serialisiere in JSON
+// Serialize into JSON
 function serialize(data) {
     return JSON.stringify(data)
 }
 
+// JSON in JS data
+// Parse JSON
 function parse(data) {
     return JSON.parse(data);
 }
 
-
+// Initialisiere kontakte[] mit LS Daten & erzeuge HTML-Liste
+// Initialize kontakte[] & populate HTML-list
 function initKontakte(data) {
     //pürfen ob LS data nicht leer
     if (data != null) {
@@ -204,10 +220,4 @@ function initKontakte(data) {
     }
 
 }
-// ANTONIO
-// function toLocalStorage(localstorageKey, localstorageValue) {
-//     const jsonString = JSON.stringify(localstorageValue);
-
-//     localStorage.setItem(localstorageKey,jsonString);
-// }
 
