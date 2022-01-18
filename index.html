@@ -1,54 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-    <title>Projekt Kontakte - JS DOM,  Objects, localstorage, </title>
-</head>
-<body>
-    
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Projekt Kontakte - JS DOM, Objects, localstorage,</title>
+  </head>
+  <body>
     <div class="container">
-        <h1 class="lead">Neuen Kontakt erfassen</h1>
+      <h1 class="lead">Neuen Kontakt erfassen</h1>
 
-        <!-- FORM -->
-        <form class="form" id="form">
+      <!-- FORM -->
+      <form class="form" id="form">
+        <div class="form-input">
+          <label for="firstname">Vorname</label>
+          <input
+            type="text"
+            name="firstname"
+            id="firstnameId"
+            placeholder="Vorname eintragen"
+          />
+          <small>Fehlermeldung</small>
+        </div>
 
-            <div class="form-input">
-                <label for="firstname">Vorname</label>
-                <input type="text" name="firstname" id="firstnameId" placeholder="Vorname eintragen">
-                <small>Fehlermeldung</small>
-            </div>
-    
-            <div class="form-input">
-                <label for="lastname">Nachname</label>
-                <input type="text" name="lastname" id="lastnameId" placeholder="Nachname eintragen">
-                <small>Fehlermeldung</small>
-            </div>
-    
-            <div class="form-input">
-                <label for="phone">Telefonnr.</label>
-                <input type="text" name="phone" id="phoneId" placeholder="Telefonnr. eintragen">
-                <small>Fehlermeldung</small>
-            </div>
-    
-            <div class="form-input">
-                <label for="email">E-Mailadresse</label>
-                <input type="text" name="email" id="email" placeholder="E-Mail eintragen">
-                <small>Fehlermeldung</small>
-            </div>
-    
-            <button>Neuen Kontakt hinzufügen</button>    
-        </form>
-        
-        <!-- OUTPUT -->
-        <div class="kontakte">
-            <h2>Meine Kontakte</h2>
-            <input type="text" id="suche" placeholder="Suche Kontakt">
+        <div class="form-input">
+          <label for="lastname">Nachname</label>
+          <input
+            type="text"
+            name="lastname"
+            id="lastnameId"
+            placeholder="Nachname eintragen"
+          />
+          <small>Fehlermeldung</small>
+        </div>
 
-            <ul id="liste" class="kontakt-liste">
-                <!-- <li>
+        <div class="form-input">
+          <label for="phone">Telefonnr.</label>
+          <input
+            type="text"
+            name="phone"
+            id="phoneId"
+            placeholder="Telefonnr. eintragen"
+          />
+          <small>Fehlermeldung</small>
+        </div>
+
+        <div class="form-input">
+          <label for="email">E-Mailadresse</label>
+          <input
+            type="text"
+            name="email"
+            id="email"
+            placeholder="E-Mail eintragen"
+          />
+          <small>Fehlermeldung</small>
+        </div>
+
+        <button class="add-btn">Neuen Kontakt hinzufügen</button>
+      </form>
+
+      <!-- OUTPUT -->
+      <div class="kontakte">
+        <h2 class="lead">Meine Kontakte</h2>
+        <input
+          type="text"
+          id="suche"
+          class="suche"
+          placeholder="Suche Kontakt"
+        />
+
+        <ul id="liste" class="kontakt-liste">
+          <!-- <li>
                     <div class="kontakt-info">
                         <h4>Soardo</h4>
                         <p>Mario</p>
@@ -56,12 +79,11 @@
                         <p>mario@s.de</p>
                     </div>
                 </li> -->
-            </ul>
-        </div>
-
+        </ul>
+        <button id="clear" class="clear-btn">Clear All Data From LS</button>
+      </div>
     </div>
 
-   
     <script src="js/script.js"></script>
-</body>
+  </body>
 </html>

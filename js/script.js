@@ -15,6 +15,7 @@ const lastname = document.getElementById("lastnameId");
 const phone = document.getElementById("phoneId");
 const email = document.getElementById("email");
 const suche = document.getElementById("suche");
+const clear = document.getElementById("clear");
 
 // Eventlistener für Formular
 form.addEventListener("submit", function (e) {
@@ -53,6 +54,9 @@ form.addEventListener("submit", function (e) {
 
 // Eventlistener fuer Sucheingabe
 suche.addEventListener("input", (e) => sucheKontakt(e.target.value));
+
+// Eventlistener fuer clear LS
+clear.addEventListener("click", clearLocalStorage);
 
 // Gole daten aus LS
 // Get data from LS
@@ -305,3 +309,9 @@ function sucheKontakt(suchValue) {
  * wie z.B. Türkisch, deren Groß-/Kleinschreibung nicht den Standard-Groß-/Kleinschreibungszuordnungen in Unicode folgt,
  * kann es ein anderes Ergebnis geben.
  */
+
+// Clear LocalStorage
+function clearLocalStorage() {
+  localStorage.clear();
+  location.reload();
+}
