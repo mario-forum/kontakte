@@ -1,58 +1,62 @@
 :root {
-    --success: limegreen;
-    --error: rgb(236, 26, 72);
+  --success: limegreen;
+  --error: rgb(236, 26, 72);
 }
 
 /* TAGS */
 body {
-    background-color: lightgrey;
+  background-color: lightgrey;
 }
-
 
 /* CLASSES */
 .container {
-    background-color: snow;
-    width: 80vw;
-    margin: 0 auto;
-    padding-left: 10px;
+  background-color: snow;
+  width: 80vw;
+  margin: 0 auto;
+  padding-left: 10px;
 }
 
 /*  FORMULAR */
 .form-input {
-    position: relative;
+  position: relative;
 }
 
 .form-input label {
-    display: block;
+  display: block;
 }
 
 .form-input input {
-    display: block;
-    border: 1px solid lightgray;
-    border-radius: 5px;
+  display: block;
+  border: 1px solid lightgray;
+  border-radius: 5px;
 }
 
 .form-input input:focus {
-    border-color: lightskyblue;
-    outline: 0;
+  border-color: lightskyblue;
+  outline: 0;
 }
 
 .form-input.success input {
-    border-color: var(--success);
+  border-color: var(--success);
 }
 
 .form-input.error input {
-    border-color: var(--error);
+  border-color: var(--error);
 }
 
 .form-input small {
-    color: var(--error);
-    /* position: absolute; */
-    visibility: hidden;
-    bottom: 0;
-    left: 0;
+  color: var(--error);
+  /* position: absolute; */
+  visibility: hidden;
+  bottom: 0;
+  left: 0;
 }
 
 .form-input.error small {
-    visibility: visible;
+  visibility: visible;
+}
+
+/* .ausblenden */
+.hide {
+  display: none;
 }
