@@ -3,8 +3,6 @@
 // Eventlistener
 // Fuktionen
 
-// +4915178677804
-
 // Kontakte-Array
 let kontakte = [];
 
